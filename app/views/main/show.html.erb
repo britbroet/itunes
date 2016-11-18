@@ -1,0 +1,18 @@
+<h1>Main#show</h1>
+<p>Find me in app/views/main/show.html.erb</p>
+
+<img src='<%= @single_track[0]["artworkUrl100"] %>'>
+<p>TRACK ID: <%= @single_track[0]["trackId"] %> </p>
+<p>TRACK NAME: <%= @single_track[0]["trackName"] %> </p>
+<p>TRACK #: <%= @single_track[0]["trackNumber"] %> of <%= @single_track[0]["trackCount"] %> </p>
+<p>ARTIST NAME: <%= @single_track[0]["artistName"] %> </p>
+<a target='__blank' href='<%= @single_track[0]["previewUrl"] %>'> target? </a>
+
+<%= form_for @fav do |f| %>
+	<%= f.hidden_field :title, :value => @single_track[0]["trackName"] %>
+	<%= f.hidden_field :artist, :value => @single_track[0]["artistName"] %>
+	<%= f.hidden_field :preview_url, :value => @single_track[0]["previewUrl"] %>
+	<%= f.hidden_field :cost, :value => @single_track[0]["trackPrice"] %>
+	<%= f.submit :class => 'btn btn-info' %>
+<% end %>
+

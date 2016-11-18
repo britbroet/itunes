@@ -1,0 +1,16 @@
+<h2>All my faves</h2>
+
+<% @favs.each do |f| %>
+
+	<div class="row">
+		<div class="col-xs-8">
+				<a class="btn-sm btn-info" href="<%= f.preview_url %>" target="__blank"> <%= f.title %> </a>
+
+			by <%= f.artist %> (for $<%= f.cost %>)
+		</div>
+		<div class="col-xs-4">
+			<%= link_to "Delete Fave?", favorites_path(:id => f.id), method: :delete, class: 'btn-sm btn-danger' %>
+		</div>
+	</div>
+
+<% end %>
